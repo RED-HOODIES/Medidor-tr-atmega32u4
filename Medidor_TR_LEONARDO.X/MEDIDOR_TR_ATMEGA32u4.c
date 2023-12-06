@@ -1,10 +1,10 @@
 /*
- * File:   main.c (PERSONALIZACI”N CARACTER)
+ * File:   main.c (PERSONALIZACI√ìN CARACTER)
  * 
  * Autores: Oscar David Poblador Parra      20211005116
  *          Juan David Bello Rodriguez      20211005028 
  *          Manuel Alejandro Guio Cardona   20211005061
- * IntrituciÛn: Universidad Distrital Francisco JosÈ de Caldas
+ * Instituci√≥n: Universidad Distrital Francisco Jos√© de Caldas
  */
 
 #include <stdio.h>
@@ -24,7 +24,7 @@ int Vbase=0,Vcolector=0,Vce=0; //Vbase en ADC0 y Vcolector en ADC1
 double VCE_mostrar=0;
 int Vbase_aux=0,Vcolector_aux=0;
 int VRbase=0, VRcolector=0;
-int SALIDA=0; //1 si es PNP, 2 si es NPN y 3 si est· daÒado
+int SALIDA=0; //1 si es PNP, 2 si es NPN y 3 si est√° da√±ado
 double hfe=0,VAF=0; //Beta y voltaje early
 double VRBASE=0,VRCOLECTOR=0,VBASE=0,VCOLECTOR=0; //Voltajes convertidos
 double VCE1=0,VCE2=0,IC1=0,IC2=0;
@@ -34,30 +34,30 @@ char disbf[20];
 char imprimir[40];
 
 int DEBOUNCER1() {
-    if (BOTON) { // Verificar si el botÛn est· presionado (lÛgica negada debido al resistor pull-up)
-        _delay_ms(10); // PequeÒo retardo para evitar rebotes
-        if (BOTON) { // Verificar nuevamente despuÈs del retardo
-            return 1; // BotÛn presionado
+    if (BOTON) { // Verificar si el bot√≥n est√° presionado (l√≥gica negada debido al resistor pull-up)
+        _delay_ms(10); // Peque√±o retardo para evitar rebotes
+        if (BOTON) { // Verificar nuevamente despu√©s del retardo
+            return 1; // Bot√≥n presionado
         }
     }
-    return 0; // BotÛn no presionado
+    return 0; // Bot√≥n no presionado
 }
 
 int DEBOUNCER2() {
-    if (BOTON2) { // Verificar si el botÛn est· presionado (lÛgica negada debido al resistor pull-up)
-        _delay_ms(10); // PequeÒo retardo para evitar rebotes
-        if (BOTON2) { // Verificar nuevamente despuÈs del retardo
-            return 1; // BotÛn presionado
+    if (BOTON2) { // Verificar si el bot√≥n est√° presionado (l√≥gica negada debido al resistor pull-up)
+        _delay_ms(10); // Peque√±o retardo para evitar rebotes
+        if (BOTON2) { // Verificar nuevamente despu√©s del retardo
+            return 1; // Bot√≥n presionado
         }
     }
-    return 0; // BotÛn no presionado
+    return 0; // Bot√≥n no presionado
 }
 
 uint16_t ADC_read(uint8_t canal){
 	canal&=0b00001111;				//Limitar la entrada a 5
-	ADMUX = (ADMUX & 0xF0)|canal;  //Limpiar los ˙ltimos 4 bits de ADMUX, OR con ch
-	ADCSRA|=(1<<ADSC);				//Inicia la conversiÛn
-	while((ADCSRA)&(1<<ADSC));		//Hasta que se complete la coversiÛn
+	ADMUX = (ADMUX & 0xF0)|canal;  //Limpiar los √∫ltimos 4 bits de ADMUX, OR con ch
+	ADCSRA|=(1<<ADSC);				//Inicia la conversi√≥n
+	while((ADCSRA)&(1<<ADSC));		//Hasta que se complete la coversi√≥n
 	return(ADC);					//devuelve el valor del adc
 }
 
@@ -153,9 +153,9 @@ void Estado(){
 void CuadrarPotenciometros(){
 
     
-    //En la anterior funciÛn dejÛ polarizado el transistor seg˙n su tipo, si est· daÒado se apaga el led
+    //En la anterior funci√≥n dej√≥ polarizado el transistor seg√∫n su tipo, si est√° da√±ado se apaga el led
     
-    //Ponga el potenciometro de la base del transistor en la menor corriente para la cual Vc este entre 0.2-0.4V y oprima el botÛn
+    //Ponga el potenciometro de la base del transistor en la menor corriente para la cual Vc este entre 0.2-0.4V y oprima el bot√≥n
     //Si cambiando solo el potenciometro de la base no llega al rango de 0.2-0.4V, entonces cambie tambien el potenciometro del colector hasta obtener el rango
     //Se necesita la minima corriente de base con la maxima corriente de colector
     dato_ADC=ADC_read(1); //Con referencia en 5V
@@ -199,7 +199,7 @@ void CuadrarPotenciometros(){
     Vcolector=dato_ADC;
     Vce=VCE(Vcolector);
     if(Vce>42 && Vce<82){
-        //printf("El Vce est· dentro del rango\n"); //PRUEBA IC2
+        //printf("El Vce est√° dentro del rango\n"); //PRUEBA IC2
         //SALTO;
         LCD_clear();
         LCD_set_cursor(0, 0);
@@ -213,7 +213,7 @@ void CuadrarPotenciometros(){
     }
     else{
         while(Vce<42 || Vce>82){
-            //printf("El Vce est· fuera del rango, cambie potenciometros\n"); //PRUEBA IC2
+            //printf("El Vce est√° fuera del rango, cambie potenciometros\n"); //PRUEBA IC2
             //SALTO;
             
             LCD_clear();
@@ -471,13 +471,13 @@ void caracteristicas(){
             //printf("Caracteristicas de su transistor");
             //SALTO;
             if(SALIDA==3){
-                //printf("Su transistor est· daÒado");
+                //printf("Su transistor est√° da√±ado");
                 LCD_clear();
                 LCD_set_cursor(0, 0);
                 sprintf(imprimir,"%s","CARACTERISTICAS");
                 LCD_printf(imprimir);
                 LCD_set_cursor(1, 0);
-                sprintf(imprimir,"%s","TR DA—ADO");
+                sprintf(imprimir,"%s","TR DA√ëADO");
                 LCD_printf(imprimir);
             }
             if(SALIDA==1){
