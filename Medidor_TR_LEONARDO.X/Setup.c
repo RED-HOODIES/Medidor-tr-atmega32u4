@@ -1,10 +1,10 @@
 /*
- * File:   main.c (PERSONALIZACIÓN CARACTER)
+ * File:   main.c (PERSONALIZACIÃ“N CARACTER)
  * 
  * Autores: Oscar David Poblador Parra      20211005116
  *          Juan David Bello Rodriguez      20211005028 
  *          Manuel Alejandro Guio Cardona   20211005061
- * Intritución: Universidad Distrital Francisco José de Caldas
+ * InstituciÃ³n: Universidad Distrital Francisco JosÃ© de Caldas
  */
 
 #include <xc.h>
@@ -14,7 +14,7 @@
 void SetupOscilador(void)
 {
     CLKPR = (1 << CLKPCE);
-    // Configura el prescaler a 0 para funcionar a la máxima velocidad
+    // Configura el prescaler a 0 para funcionar a la mÃ¡xima velocidad
     CLKPR = 0;
 return;}
 
