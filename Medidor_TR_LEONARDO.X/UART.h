@@ -1,10 +1,10 @@
 /*
- * File:   main.c (PERSONALIZACIÓN CARACTER)
+ * File:   main.c (PERSONALIZACIÃ“N CARACTER)
  * 
  * Autores: Oscar David Poblador Parra      20211005116
  *          Juan David Bello Rodriguez      20211005028 
  *          Manuel Alejandro Guio Cardona   20211005061
- * Intritución: Universidad Distrital Francisco José de Caldas
+ * InstituciÃ³n: Universidad Distrital Francisco JosÃ© de Caldas
  */
 
 #include <stdio.h>
@@ -15,9 +15,9 @@
 #define SALTO (USART_transmit('\r'))
 
 
-void UART_init();							//función para iniciar el USART AVR asíncrono, 8 bits, 9600 baudios,
-unsigned char UART_read();					//función para la recepción de caracteres
-void UART_write(unsigned char);				//función para la transmisión de caracteres
+void UART_init();							//funciÃ³n para iniciar el USART AVR asÃ­ncrono, 8 bits, 9600 baudios,
+unsigned char UART_read();					//funciÃ³n para la recepciÃ³n de caracteres
+void UART_write(unsigned char);				//funciÃ³n para la transmisiÃ³n de caracteres
 int USART_printCHAR(char character, FILE *stream);
 
 static FILE USART_0_stream = FDEV_SETUP_STREAM(USART_printCHAR, NULL, _FDEV_SETUP_WRITE);
@@ -59,21 +59,21 @@ unsigned char UART_read(){
 }
 
 void UART_write(unsigned char caracter){
-	while(!(UCSR1A&(1<<5)));    // mientras el registro UDR0 esté lleno espera
-	UDR1 = caracter;            //cuando el el registro UDR0 está vacio se envia el caracter
+	while(!(UCSR1A&(1<<5)));    // mientras el registro UDR0 estÃ© lleno espera
+	UDR1 = caracter;            //cuando el el registro UDR0 estÃ¡ vacio se envia el caracter
 }
 
 void UART_write_txt(char* cadena){			//cadena de caracteres de tipo char
-	while(*cadena !=0x00){				//mientras el último valor de la cadena sea diferente a el caracter nulo
+	while(*cadena !=0x00){				//mientras el Ãºltimo valor de la cadena sea diferente a el caracter nulo
 		UART_write(*cadena);			//transmite los caracteres de cadena
-		cadena++;						//incrementa la ubicación de los caracteres en cadena
+		cadena++;						//incrementa la ubicaciÃ³n de los caracteres en cadena
 										//para enviar el siguiente caracter de cadena
 	}
 }
 
 void USART_transmit(uint8_t data) {
-    // Transmitir un byte a través de la UART
-    while (!(UCSR1A & (1 << UDRE1))); // Esperar a que el registro de datos esté vacío
+    // Transmitir un byte a travÃ©s de la UART
+    while (!(UCSR1A & (1 << UDRE1))); // Esperar a que el registro de datos estÃ© vacÃ­o
     UDR1 = data; // Transmitir el byte
 }
 
