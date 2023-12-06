@@ -1,10 +1,10 @@
 /*
- * File:   main.c (PERSONALIZACIÓN CARACTER)
+ * File:   main.c (PERSONALIZACIÃ“N CARACTER)
  * 
  * Autores: Oscar David Poblador Parra      20211005116
  *          Juan David Bello Rodriguez      20211005028 
  *          Manuel Alejandro Guio Cardona   20211005061
- * Intritución: Universidad Distrital Francisco José de Caldas
+ * InstituciÃ³n:: Universidad Distrital Francisco JosÃ© de Caldas
  */
 
 #include <xc.h>
@@ -179,14 +179,14 @@ void LCD_desplazar(char *text) {
     for (int i = 0; i <= textLength; i++) {
         // Borra la pantalla antes de escribir el texto
         
-        // Calcula la posición de inicio para el desplazamiento
+        // Calcula la posiciÃ³n de inicio para el desplazamiento
         int startPosition = i;
         
-        // Verifica si el texto aún cabe en la pantalla
+        // Verifica si el texto aÃºn cabe en la pantalla
         if (startPosition + 16 > textLength) {
             startPosition = textLength - 16;
         }
-        // Imprime la parte del texto que se verá en la pantalla
+        // Imprime la parte del texto que se verÃ¡ en la pantalla
         LCD_set_cursor(0, 0);
         LCD_printf(&text[startPosition]);
         
